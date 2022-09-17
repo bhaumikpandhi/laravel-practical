@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/user', function () {
     return response()->json(['a' => 'b']);
 })->middleware('auth:api');
+
+
+Route::apiResource('tasks', TaskController::class)->middleware('auth:api');

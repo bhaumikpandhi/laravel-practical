@@ -23,4 +23,23 @@ class Task extends Model
     {
         return $this->hasMany(Note::class);
     }
+
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::deleting(function ($task) {
+            $task->load('notes.noteFiles');
+
+            foreach ($task->notes as $note) {
+                foreach ($note->noteFiles as $file) {
+                    $file->delete();
+                }
+                $note->delete();
+            }
+        });
+    }
 }

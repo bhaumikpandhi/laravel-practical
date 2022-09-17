@@ -18,6 +18,14 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        User::factory()->create([
+            'name' => 'Authorised User',
+            'email' => 'authorised@gmail.com'
+        ]);
+        User::factory()->create([
+            'name' => 'Unauthorised User',
+            'email' => 'unauthorised@gmail.com'
+        ]);
         User::factory()
             ->has(
                 Task::factory()

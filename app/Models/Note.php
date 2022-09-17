@@ -10,6 +10,8 @@ class Note extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function noteFiles(): HasMany
     {
         return $this->hasMany(NoteFile::class);
