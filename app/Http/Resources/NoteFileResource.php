@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class NoteResource extends JsonResource
+class NoteFileResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,11 +15,8 @@ class NoteResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'task_id' => $this->task_id,
-            'subject' => $this->subject,
-            'note' => $this->note,
-            'files' => NoteFileResource::collection($this->whenLoaded('noteFiles'))
+            'path' => $this->path,
+            'url' => $this->file_url
         ];
     }
 }

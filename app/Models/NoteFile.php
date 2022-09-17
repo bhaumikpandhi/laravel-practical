@@ -20,7 +20,12 @@ class NoteFile extends Model
     protected static function booted()
     {
         static::deleting(function ($file) {
-            Storage::disk('public')->delete('uploads/'.$file->path);
+            Storage::disk('public')->delete('uploads/' . $file->path);
         });
+    }
+
+    public function getFileURLAttribute()
+    {
+        return Storage::disk('public')->url('uploads/' . $this->path);
     }
 }

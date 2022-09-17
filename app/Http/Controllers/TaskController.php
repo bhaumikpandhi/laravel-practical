@@ -34,7 +34,7 @@ class TaskController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        return TaskResource::collection(Task::query()->latest()->paginate(10));
+        return TaskResource::collection(Task::query()->with('notes.noteFiles')->latest()->paginate(10));
     }
 
     /**
