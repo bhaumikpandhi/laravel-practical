@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+
+    public function getTokenAttribute(): string
+    {
+        return $this->createToken('token')->accessToken;
+    }
 }
