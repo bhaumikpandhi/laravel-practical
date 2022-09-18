@@ -8,12 +8,26 @@ use App\Http\Resources\NoteResource;
 use App\Http\Resources\TaskResource;
 use App\Models\Note;
 use App\Models\Task;
+use App\Services\FileUploadService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class NoteController extends Controller
 {
+
+    protected FileUploadService $fileUploadService;
+
+    /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(FileUploadService $fileUploadService)
+    {
+        $this->fileUploadService = $fileUploadService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -39,6 +53,10 @@ class NoteController extends Controller
                 'subject' => $request->get('subject'),
                 'note' => $request->get('note')
             ]);
+
+            if ($request->has('noteFiles')) {
+                $this->fileUploadService->uploadNoteFiles($request->file('noteFiles'), $note->id);
+            }
 
             return response()->json([
                 'note' => (new NoteResource($note)),
