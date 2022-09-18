@@ -70,7 +70,9 @@ class TaskController extends Controller
 
                 foreach ($request->get('notes') as $key => $value) {
                     $singleNote = $task->notes->get($key);
-                    $this->fileUploadService->uploadNoteFiles($request->file('notes.' . $key . '.files'), $singleNote->id);
+                    if ($request->file('notes.' . $key . '.files')) {
+                        $this->fileUploadService->uploadNoteFiles($request->file('notes.' . $key . '.files'), $singleNote->id);
+                    }
                 }
             }
             return response()->json([

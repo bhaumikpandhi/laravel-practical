@@ -54,7 +54,7 @@ class NoteController extends Controller
                 'note' => $request->get('note')
             ]);
 
-            if ($request->has('noteFiles')) {
+            if ($request->has('noteFiles') && $request->file('noteFiles')) {
                 $this->fileUploadService->uploadNoteFiles($request->file('noteFiles'), $note->id);
             }
 

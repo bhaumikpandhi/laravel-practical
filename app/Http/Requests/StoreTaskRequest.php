@@ -37,6 +37,8 @@ class StoreTaskRequest extends FormRequest
             'due_date' => 'required|date|date_format:Y-m-d|after_or_equal:start_date',
             'status' => Rule::in(array_column(TaskStatusEnum::cases(), 'value')),
             'priority' => Rule::in(array_column(TaskPriorityEnum::cases(), 'value')),
+            'notes.*.subject' => 'required_with:notes.*.note',
+            'notes.*.note' => 'required_with:notes.*.subject',
         ];
     }
 }
