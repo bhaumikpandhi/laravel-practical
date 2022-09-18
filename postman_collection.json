@@ -72,42 +72,45 @@
 								{
 									"key": "order",
 									"value": "priority",
+									"description": "sort by",
 									"type": "text"
 								},
 								{
 									"key": "order",
 									"value": "notes_count",
+									"description": "sort by",
 									"type": "text",
 									"disabled": true
 								},
 								{
 									"key": "order_direction",
 									"value": "desc",
+									"description": "asc or desc",
 									"type": "text"
 								},
 								{
 									"key": "filter[status]",
 									"value": "complete",
-									"type": "text",
-									"disabled": true
+									"description": "complete, incomplete, new",
+									"type": "text"
 								},
 								{
 									"key": "filter[due_date]",
 									"value": "2022-01-25",
-									"type": "text",
-									"disabled": true
+									"description": "specific date",
+									"type": "text"
 								},
 								{
 									"key": "filter[priority]",
 									"value": "medium",
-									"type": "text",
-									"disabled": true
+									"description": "high, medium, low",
+									"type": "text"
 								},
 								{
 									"key": "filter[notes]",
 									"value": "8",
-									"type": "text",
-									"disabled": true
+									"description": "no. of notes count",
+									"type": "text"
 								}
 							]
 						},
@@ -225,26 +228,22 @@
 								{
 									"key": "notes[0][subject]",
 									"value": "subj 1",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "notes[1][subject]",
 									"value": "sub 2",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "notes[0][note]",
 									"value": "note 1",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "notes[1][note]",
 									"value": "note 2",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "notes[0][files][]",
