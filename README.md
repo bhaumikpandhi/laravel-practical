@@ -1,4 +1,4 @@
-##Installation
+## Installation
 
 - `git clone https://github.com/bhaumikpandhi/techup-practical.git`
 - `cd techup-practical`
@@ -31,7 +31,7 @@ e.g
 - `php artisan passport:client --personal`
 
 
-###Login Credentials
+### Login Credentials
 
 Email | Password| Access Allowed
 --- | --- | --- 
@@ -40,11 +40,12 @@ unauthorised@gmail.com | password | false
 
 
 ### Postman Collection 
-To get details more about APIs including endpoint, body, header etc. Please download postman collection from [link](https://raw.githubusercontent.com/bhaumikpandhi/techup-practical/main/postman_collection.json) and import in postman, also create environment with below link.
+To get details more about APIs including endpoint, body, header etc. Please download postman collection from **[link]**(https://raw.githubusercontent.com/bhaumikpandhi/techup-practical/main/postman_collection.json) and import in postman, also create environment with below link.
 
-### Postman environment link
+### Postman links
 
-https://go.postman.co/workspace/Studio~0d4303c1-c805-4da7-abd8-61c0837f8bee/environment/12227863-b0c175d0-fee4-4aa6-bd05-9c41ace4694f
+- `collection` https://raw.githubusercontent.com/bhaumikpandhi/techup-practical/main/postman_collection.json
+- `environment` https://go.postman.co/workspace/Studio~0d4303c1-c805-4da7-abd8-61c0837f8bee/environment/12227863-b0c175d0-fee4-4aa6-bd05-9c41ace4694f
 
 ----------------
 
