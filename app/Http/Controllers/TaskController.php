@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enum\TaskPriorityEnum;
+use App\Enum\TaskStatusEnum;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
@@ -11,6 +13,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use App\Http\Resources\TaskResource;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class TaskController extends Controller
@@ -137,5 +140,29 @@ class TaskController extends Controller
             return response()->json(['error' => $e->getMessage()]);
         }
 
+    }
+
+
+    /**
+     * Get tasks lists with advance filter
+     *
+     * @param Request $request
+     * @return AnonymousResourceCollection
+     */
+    public function filteredTasks(Request $request): AnonymousResourceCollection
+    {
+        $request->validate([
+            'filter.status' => ['nullable', Rule::in(array_column(TaskStatusEnum::cases(), 'value'))],
+            'filter.priority' => ['nullable', Rule::in(array_column(TaskPriorityEnum::cases(), 'value'))],
+            'filter.due_date' => ['nullable', 'date', 'date_format:Y-m-d'],
+            'order_direction' => ['nullable', Rule::in(['desc', 'asc'])]
+        ]);
+
+        return TaskResource::collection(
+            Task::query()
+                ->withCount('notes')
+                ->search($request)
+                ->paginate(10)
+        );
     }
 }

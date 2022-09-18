@@ -22,6 +22,7 @@ class TaskResource extends JsonResource
             'status' => $this->status->name,
             'priority' => $this->priority->name,
             'notes' => NoteResource::collection($this->whenLoaded('notes')),
+            'notes_count' => $this->whenCounted('notes'),
         ];
     }
 }

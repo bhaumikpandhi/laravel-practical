@@ -30,4 +30,5 @@ Route::post('/register', [LoginController::class, 'register']);
 
 
 Route::apiResource('tasks', TaskController::class)->middleware('auth:api');
+Route::post('filtered-tasks', [TaskController::class, 'filteredTasks'])->middleware('auth:api');
 Route::apiResource('notes', NoteController::class)->middleware('auth:api');
