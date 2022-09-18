@@ -1,0 +1,832 @@
+{
+	"info": {
+		"_postman_id": "39044feb-e1b8-4230-adf5-65b7e1efaf12",
+		"name": "techup-practical",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12227863"
+	},
+	"item": [
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "List tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://techup-exam.test/api/tasks",
+							"protocol": "https",
+							"host": [
+								"techup-exam",
+								"test"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "advance search tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order",
+									"value": "priority",
+									"type": "text"
+								},
+								{
+									"key": "order",
+									"value": "notes_count",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order_direction",
+									"value": "desc",
+									"type": "text"
+								},
+								{
+									"key": "filter[status]",
+									"value": "complete",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "filter[due_date]",
+									"value": "2022-01-25",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "filter[priority]",
+									"value": "medium",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "filter[notes]",
+									"value": "8",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://techup-exam.test/api/filtered-tasks",
+							"protocol": "https",
+							"host": [
+								"techup-exam",
+								"test"
+							],
+							"path": [
+								"api",
+								"filtered-tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://techup-exam.test/api/tasks/1",
+							"protocol": "https",
+							"host": [
+								"techup-exam",
+								"test"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "title",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "new",
+									"type": "text"
+								},
+								{
+									"key": "priority",
+									"value": "high",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "2022-01-25",
+									"type": "text"
+								},
+								{
+									"key": "due_date",
+									"value": "2022-01-25",
+									"type": "text"
+								},
+								{
+									"key": "notes[0][subject]",
+									"value": "subj 1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "notes[1][subject]",
+									"value": "sub 2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "notes[0][note]",
+									"value": "note 1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "notes[1][note]",
+									"value": "note 2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "notes[0][files][]",
+									"type": "file",
+									"src": "/Users/bhaumikpandhi/Desktop/image.jpeg",
+									"disabled": true
+								},
+								{
+									"key": "notes[1][files][]",
+									"type": "file",
+									"src": "/Users/bhaumikpandhi/Desktop/nike-json-example.png",
+									"disabled": true
+								},
+								{
+									"key": "notes[1][files][]",
+									"type": "file",
+									"src": "/Users/bhaumikpandhi/Desktop/Resume.pdf",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://techup-exam.test/api/tasks",
+							"protocol": "https",
+							"host": [
+								"techup-exam",
+								"test"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "title 1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description 2",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "incomplete",
+									"type": "text"
+								},
+								{
+									"key": "priority",
+									"value": "low",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "2022-01-25",
+									"type": "text"
+								},
+								{
+									"key": "due_date",
+									"value": "2022-01-25",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://techup-exam.test/api/tasks/1",
+							"protocol": "https",
+							"host": [
+								"techup-exam",
+								"test"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://techup-exam.test/api/tasks/17",
+							"protocol": "https",
+							"host": [
+								"techup-exam",
+								"test"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"17"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Note",
+			"item": [
+				{
+					"name": "List notes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://techup-exam.test/api/notes",
+							"protocol": "https",
+							"host": [
+								"techup-exam",
+								"test"
+							],
+							"path": [
+								"api",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "subject",
+									"value": "title",
+									"type": "text"
+								},
+								{
+									"key": "note",
+									"value": "description",
+									"type": "text"
+								},
+								{
+									"key": "task_id",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "noteFiles[]",
+									"type": "file",
+									"src": [
+										"/Users/bhaumikpandhi/Desktop/image.jpeg",
+										"/Users/bhaumikpandhi/Desktop/Resume.pdf"
+									],
+									"disabled": true
+								},
+								{
+									"key": "noteFiles[]",
+									"type": "file",
+									"src": "/Users/bhaumikpandhi/Desktop/image.jpeg",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://techup-exam.test/api/notes",
+							"protocol": "https",
+							"host": [
+								"techup-exam",
+								"test"
+							],
+							"path": [
+								"api",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "task_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "subject",
+									"value": "subjasdasdasd",
+									"type": "text"
+								},
+								{
+									"key": "note",
+									"value": "noooo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://techup-exam.test/api/notes/1",
+							"protocol": "https",
+							"host": [
+								"techup-exam",
+								"test"
+							],
+							"path": [
+								"api",
+								"notes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://techup-exam.test/api/notes/1",
+							"protocol": "https",
+							"host": [
+								"techup-exam",
+								"test"
+							],
+							"path": [
+								"api",
+								"notes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var res = pm.response.json();",
+									"pm.environment.set(\"auth_token\", res.token);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "authorised@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://techup-exam.test/api/login",
+							"protocol": "https",
+							"host": [
+								"techup-exam",
+								"test"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var res = pm.response.json();",
+									"pm.environment.set(\"auth_token\", res.token);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "authorised2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "abc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://techup-exam.test/api/register",
+							"protocol": "https",
+							"host": [
+								"techup-exam",
+								"test"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{auth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://techup-exam.test/api/user",
+					"protocol": "https",
+					"host": [
+						"techup-exam",
+						"test"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
