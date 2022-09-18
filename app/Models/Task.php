@@ -7,6 +7,7 @@ use App\Enum\TaskStatusEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Builder;
 
 class Task extends Model
 {
@@ -41,5 +42,16 @@ class Task extends Model
                 $note->delete();
             }
         });
+    }
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeOfUser(Builder $query, $userId): Builder
+    {
+        return $query->where('user_id', $userId);
     }
 }
